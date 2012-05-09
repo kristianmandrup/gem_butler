@@ -1,0 +1,6 @@
+# Facebook
+
+# http://jeffdeville.com/minifb-vs-koala-vs-mogli-facebook-graph-api-r
+
+gem 'facebook-social_plugins', 		'~> 0.2.2' #, :git => 'git://github.com/kristianmandrup/facebook-social_plugins.git'
+gem 'facebook-rails-starterkit', 	'~> 0.1.3' #, :git => 'git://github.com/kristianmandrup/facebook-rails-starterkit.git'

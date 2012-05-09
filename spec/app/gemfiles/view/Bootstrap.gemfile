@@ -1,0 +1,9 @@
+# twitter bootstrap
+# -----------------
+# gem 'bootstrapped' ,    :git => 'git://github.com/kristianmandrup/bootstrapped.git'
+# gem 'bootstrap_helper', :git => 'git://github.com/kristianmandrup/bootstrap-helper.git'
+
+# gem 'twitter_bootstrap_form_for', :git => 'git://github.com/kristianmandrup/twitter_bootstrap_form_for.git'
+
+# gem 'formtastic-bootstrap',       :git => 'git://github.com/kristianmandrup/formtastic-bootstrap.git'
+# gem 'bootstrap-components-rails', :git => 'git://github.com/kristianmandrup/bootstrap-components-rails.git'

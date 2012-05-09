@@ -1,0 +1,14 @@
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails' # '~> 4.0.0.beta', :git => 'git://github.com/rails/sass-rails.git'
+  gem 'compass-rails', '~> 1.0.1'
+  gem 'coffee-rails' # '~> 4.0.0.beta', :git => 'git://github.com/rails/coffee-rails.git'
+  gem 'uglifier', '>= 1.0.3'	
+	# gem "bootstrap-sass", "~> 2.0.1" # https://github.com/thomas-mcdonald/bootstrap-sass
+  gem "twitter-bootstrap-rails"
+  gem 'bourbon' # sass helpers
+
+  gem 'haml_coffee_assets'
+  gem 'execjs'  
+end
