@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
   s.date = "2012-05-09"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Allows a much easier way to select/deselect a subset of related gems to include in a project"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "gem_butler.gemspec",
     "lib/gem_butler.rb",
     "spec/app/gemfiles/Assets.gemfile",
     "spec/app/gemfiles/Facebook.gemfile",
@@ -37,7 +38,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Divide Gemfile into named Gem packages and select which to include/exclude"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
