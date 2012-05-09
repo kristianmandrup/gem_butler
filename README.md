@@ -19,7 +19,7 @@ In your Gemfile:
 
 ```ruby
 require 'butler'
-butler = Butler.new
+butler = GemButler.new
 butler.base_path = File.dirname(__FILE__) + '/gemfiles'
 butler.exclude = [:bootstrap]
 
