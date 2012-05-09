@@ -11,6 +11,16 @@ class GemButler
     @gemfiles ||= Dir.glob File.join(gemfiles_path, '**', '*.gemfile')
   end
 
+  def gemfile_names mode = :included
+    list = case mode
+    when :included
+      included_gemfiles
+    else
+      gemfiles
+    end
+    list.map {|gemfile| gemfile.match(/\/(\w+)\.\w+$/)[1] }
+  end
+
   def gemfile_paths
     @gemfile_paths ||= gemfiles.map(&:to_s)
   end
@@ -22,16 +32,17 @@ class GemButler
 
   def excluded
     return [] if !exclude
-    puts "a"
-    @excluded ||= begin
-      exclude_list = [exclude].flatten.inject([]) do |res, gemfile|
-        res += gemfile_paths.grep(/#{Regexp.escape(gemfile)}\.gemfile$/i)
-        res
-      end
-      puts "ex: #{exclude_list}"
+    @excluded ||= begin      
       gemfile_paths - exclude_list.flatten
     end
   end
+
+  def exclude_list
+    @exclude_list ||= [exclude].flatten.inject([]) do |res, gemfile|
+      res += gemfile_paths.grep(/#{Regexp.escape(gemfile)}\.gemfile$/i)
+      res
+    end
+  end    
 
   def only_included?
     !only_included.empty?
@@ -43,10 +54,6 @@ class GemButler
       res += gemfile_paths.grep(/#{Regexp.escape(gemfile)}\.gemfile$/i)
       res
     end
-  end
-
-  def gemfile_names
-    @gemfile_names ||= gemfiles.map {|gemfile| gemfile.match(/\/(\w+)\.\w+$/)[1] }
   end
 
   def gemfiles_path
