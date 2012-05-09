@@ -15,13 +15,32 @@ Example file structure
     - Bootstrap.gemfile
 ```
 
+GemButler comes with the following main API:
+
+* `include_only :folders => {...}, :names => {...}`
+* `exclude :folders => {...}, :names => {...}`
+* `select *names`
+
+The method `include_only` takes an option hash with the keys `:folders` and `:names`. Butler will then select only the Gemfiles which are in the listed folders and have the given names.
+
+The method `exclude` is similar to `include_only` but instead excludes any Gemfiles either in any of the given folders or matching the given names.
+
+The `select` method take as list of names and will additionally select Gemfiles matching these names unless specifically listed in the set of excluded names. 
+
+This logic should be powerful enough to support most usage situations.
+
 In your Gemfile:
 
 ```ruby
 require 'butler'
-butler = GemButler.new
-butler.base_path = File.dirname(__FILE__) + '/gemfiles'
-butler.exclude = [:bootstrap]
+butler = GemButler.new File.dirname(__FILE__) + '/gemfiles'
+
+# include/exclude certain gemfiles
+# this would include only gemfiles living in the /view or /back_end folder named Test (or test)
+# additionally it would also select (include) the Facebook gemfile wherever it is, even if Facebook is not matched by the include_only logic.
+
+butler.include_only :folders => [:view, :back_end], :names => :test
+butler.select :facebook
 
 butler.included_gemfiles.each do |gemfile|
   # puts "gemfile: #{gemfile}"
