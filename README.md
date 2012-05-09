@@ -1,8 +1,35 @@
-= gem_butler
+# Gem butler
 
-Description goes here.
+Makes it easy to divide your Gemfile into packages (or categories) of gems to include, each in a separate (smaller) gemfile.
 
-== Contributing to gem_butler
+You could put the gemfiles in a `gemfiles` folder in the root of your app.
+The gemfiles should be of the form `Assets.gemfile`.
+
+Example file structure
+
+```
++ gemfiles
+  - Assets.gemfile
+  - Backend.gemfile
+  + view
+    - Bootstrap.gemfile
+```
+
+In your Gemfile:
+
+```ruby
+require 'butler'
+butler = Butler.new
+butler.base_path = File.dirname(__FILE__) + '/gemfiles'
+butler.exclude = [:bootstrap]
+
+butler.included_gemfiles.each do |gemfile|
+  # puts "gemfile: #{gemfile}"
+  eval(IO.read(gemfile), binding)
+end
+```
+
+## Contributing to gem_butler
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
