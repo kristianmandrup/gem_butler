@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "gem_butler"
   gem.homepage = "http://github.com/kristianmandrup/gem_butler"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Divide Gemfile into named Gem packages and select which to include/exclude}
+  gem.description = %Q{Allows a much easier way to select/deselect a subset of related gems to include in a project}
   gem.email = "kmandrup@gmail.com"
   gem.authors = ["Kristian Mandrup"]
   # dependencies defined in Gemfile
